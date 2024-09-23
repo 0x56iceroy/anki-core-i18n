@@ -16,7 +16,7 @@ deck-config-new-limit-tooltip = 有新卡片可學習時，當天的新卡片數
 deck-config-review-limit-tooltip = 有複習卡可學習時，當天的複習卡數量上限。
 deck-config-limit-deck-v3 = 當你選取了一個牌組來學習時，如果這個牌組下有子牌組，各子牌組的卡片上限設定會被一一套用。而你選取的牌組所設上限為顯示的卡片總上限。
 deck-config-limit-new-bound-by-reviews = 複習上限會影響新卡片上限。若複習上限設為 200，且有 190 張卡片待複習，則最多只會顯示 10 張新卡片。若已達到或超出複習上限，則不會再顯示新卡片。
-deck-config-limit-interday-bound-by-reviews = 複習上限也會影響跨天學習卡片。套用上限時，跨天學習卡片會被優先擷取，再算入複習卡。
+deck-config-limit-interday-bound-by-reviews = 複習上限也會影響跨日學習卡片。套用上限時，跨日學習卡片會被優先擷取，再算入複習卡。
 deck-config-tab-description =
     - `預設組`：所有使用此預設組的牌組的上限。
     - `當前牌組`：當前牌組的上限。
@@ -64,15 +64,15 @@ deck-config-leech-action-tooltip =
 deck-config-bury-title = 暫停
 deck-config-bury-new-siblings = 暫停關聯的新卡片
 deck-config-bury-review-siblings = 暫停關聯的複習卡
-deck-config-bury-interday-learning-siblings = 暫停關聯的跨天學習卡片
+deck-config-bury-interday-learning-siblings = 暫停關聯的跨日學習卡片
 deck-config-bury-new-tooltip = 啟用後，推遲同一則筆記中的其他 `新卡片`（如反向卡片、同一篇克漏字的其他空格）到第二天。
 deck-config-bury-review-tooltip = 啟用後，推遲同一則筆記中的其他 `複習卡` 到第二天。
 deck-config-bury-interday-learning-tooltip = 啟用後，推遲同一則筆記中其他正在 `學習中` 且學習間隔大於 1 天的卡片到第二天。
 deck-config-bury-priority-tooltip =
-    Anki 收集卡片的順序為當天學習卡片→跨天學習卡片→複習卡→新卡片。這個順序影響卡片暫停的機制：
+    Anki 收集卡片的順序為當天學習卡片→跨日學習卡片→複習卡→新卡片。這個順序影響卡片暫停的機制：
     
     - 啟用所有暫停選項時，會顯示順序最前的關聯卡片。例如，複習卡會優先於新卡片顯示。
-    - 順序靠後的關聯卡片無法暫停較前的卡片類型。例如，停用「暫停關聯的新卡片」時，學習新卡片將不會暫停跨天學習卡片和複習卡，因此關聯的複習卡和新卡片可能會同時出現。
+    - 順序靠後的關聯卡片無法暫停較前的卡片類型。例如，停用「暫停關聯的新卡片」時，學習新卡片將不會暫停跨日學習卡片和複習卡，因此關聯的複習卡和新卡片可能會同時出現。
 
 ## Ordering section
 
@@ -112,11 +112,11 @@ deck-config-sort-order-template-then-gather = 卡片類型→收集順序
 deck-config-sort-order-gather = 收集順序
 deck-config-new-review-priority = 新卡片/複習卡順序
 deck-config-new-review-priority-tooltip = 新卡片與複習卡顯示的先後順序。
-deck-config-interday-step-priority = 跨天學習/複習卡順序
+deck-config-interday-step-priority = 跨日學習/複習卡順序
 deck-config-interday-step-priority-tooltip =
-    跨天學習時，（重新）學習中的卡片的顯示順序。
+    跨日學習時，（重新）學習中的卡片的顯示順序。
     
-    複習上限總是優先計算跨天學習的卡片，再套用到複習卡。此選項將控制卡片被收集後的顯示順序，但跨天學習卡片永遠會被優先收集。
+    複習上限總是優先計算跨日學習的卡片，再套用到複習卡。此選項將控制卡片被收集後的顯示順序，但跨日學習卡片永遠會被優先收集。
 deck-config-review-mix-mix-with-reviews = 與複習卡混合
 deck-config-review-mix-show-after-reviews = 先顯示複習卡
 deck-config-review-mix-show-before-reviews = 後顯示複習卡
@@ -305,13 +305,13 @@ deck-config-bury-siblings = 回答後暫停關聯卡片
 deck-config-do-not-bury = 不暫停關聯卡片
 deck-config-bury-if-new = 暫停新卡片
 deck-config-bury-if-new-or-review = 暫停新卡片/複習卡
-deck-config-bury-if-new-review-or-interday = 暫停新卡片/複習卡/跨天學習卡片
+deck-config-bury-if-new-review-or-interday = 暫停新卡片/複習卡/跨日學習卡片
 deck-config-bury-tooltip =
     關聯卡片是指由同一則筆記建立的其他卡片（如正面/背面卡片，或同一則克漏字筆記的各個空格）。
     
     停用時，一則筆記的多張卡片有機會在同一天出現。啟用時，Anki 會自動*暫停*關聯卡片，直到下一天前都不會出現。此選項可讓你選擇在回答時要暫停哪些種類的卡片。
     
-    使用 V3 排程器時，跨天學習卡片也可以被暫停。跨天學習卡片是指當前學習階段為一天或更多的卡片。
+    使用 V3 排程器時，跨日學習卡片也可以被暫停。跨日學習卡片是指當前學習階段為一天或更多的卡片。
 deck-config-seconds-to-show-question-tooltip = 啟用自動前進時，顯示答案前需要等待的秒數。設定為 0 來停用。
 deck-config-answer-action-tooltip = 自動前進到下一張卡片之前要為當前卡片執行的動作。
 deck-config-wait-for-audio-tooltip = 等待音訊播放結束後再自動顯示答案或前進到下一道問題。
